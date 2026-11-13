@@ -1,0 +1,212 @@
+{
+  "meta": {
+    "title": "Miles Song (宋明远) · Xiamen University",
+    "description": "Academic homepage of Miles Song (宋明远), Ph.D. student at Xiamen University interested in advanced AI systems, AI infrastructure, and agent systems, with published work in programmable networks and formal verification."
+  },
+  "identity": {
+    "name": "Miles Song",
+    "chineseName": "宋明远",
+    "role": "Ph.D. Student in Computer Science and Technology",
+    "affiliation": "School of Informatics, Xiamen University",
+    "location": "Xiamen, China",
+    "avatarAlt": "Miles Song's GitHub avatar",
+    "publicationName": "Mingyuan Song"
+  },
+  "ui": {
+    "profile": "Profile",
+    "news": "News",
+    "research": "Research",
+    "publications": "Publications",
+    "navigationLabel": "Section navigation",
+    "skip": "Skip to main content",
+    "email": "Email",
+    "github": "GitHub",
+    "viewPublications": "View publications",
+    "education": "Education",
+    "paper": "Paper",
+    "code": "Code",
+    "bibtex": "BibTeX",
+    "copyCitation": "Copy BibTeX",
+    "copied": "Copied",
+    "copyError": "Copy failed; citation selected for manual copy.",
+    "closeCitation": "Close",
+    "backToTop": "Back to top",
+    "selectedWork": "Selected work",
+    "publicationCount": "3 papers",
+    "footer": "© 2026 Miles Song",
+    "emailAria": "Send an email to Miles Song",
+    "githubAria": "Open Miles Song's GitHub profile",
+    "onThisPage": "On this page"
+  },
+  "profile": {
+    "lead": "I am interested in advanced AI systems, AI infrastructure, and agent systems, drawing on my background in building reliable, efficient networked and distributed systems.",
+    "bio": [
+      "I am a Ph.D. student in the School of Informatics at Xiamen University, advised by Professor Qiao Xiang. My published work spans programmable networks and formal verification, including distributed P4 verification, cloud policy encoding, and switch-based SAT solving.",
+      "Internships on supernode communication modeling and system simulation at Huawei's 2012 Network Technology Lab and backend experimentation infrastructure at Tencent shaped my interest in the interconnects, simulation tools, and runtime systems supporting modern AI workloads."
+    ],
+    "interests": [
+      "Advanced AI systems",
+      "AI infrastructure",
+      "Agent systems"
+    ]
+  },
+  "education": [
+    {
+      "years": "2026–present",
+      "degree": "Ph.D. in Computer Science and Technology",
+      "institution": "Xiamen University"
+    },
+    {
+      "years": "2023–2026",
+      "degree": "M.S. in Computer Technology",
+      "institution": "Xiamen University"
+    },
+    {
+      "years": "2019–2023",
+      "degree": "B.Eng. in Software Engineering",
+      "institution": "Yunnan University"
+    }
+  ],
+  "news": [
+    {
+      "date": "2026-09",
+      "text": "Began Ph.D. studies in the School of Informatics at Xiamen University, advised by Professor Qiao Xiang.",
+      "linkLabel": "",
+      "linkTarget": ""
+    },
+    {
+      "date": "2026-08",
+      "text": "Our paper Procurator on verifying distributed in-network computing programs was published at ACM SIGCOMM 2026.",
+      "linkLabel": "ACM SIGCOMM",
+      "linkTarget": "#procurator"
+    },
+    {
+      "date": "2026-06",
+      "text": "Completed the M.S. in Computer Technology at Xiamen University.",
+      "linkLabel": "",
+      "linkTarget": ""
+    },
+    {
+      "date": "2025-07",
+      "text": "Our paper LEOPARD on cloud access-control policy verification was published at IEEE/ACM IWQoS 2025.",
+      "linkLabel": "IEEE/ACM IWQoS",
+      "linkTarget": "#leopard"
+    }
+  ],
+  "research": {
+    "intro": "My research connects formal verification and cross-layer system simulation with open design questions in AI infrastructure and multi-agent runtimes.",
+    "areas": [
+      {
+        "title": "AI systems & infrastructure",
+        "body": "How do cluster interconnects, memory hierarchies, and runtime schedulers shape distributed training and inference efficiency? Building on supernode communication modeling, I am interested in how transport protocols, collective primitives, and resource multiplexing behave under dynamic AI workloads."
+      },
+      {
+        "title": "Agent systems",
+        "body": "Multi-step tool invocation, external state mutation, and asynchronous message passing make multi-agent workflows difficult to coordinate and debug. I am interested in how execution tracing, state isolation, and formal verification methods can make agent runtimes predictable and verifiable."
+      },
+      {
+        "title": "Programmable networks & verification",
+        "body": "My published research builds verification and hardware-acceleration mechanisms for networked and cloud systems. Using reactive actor modeling, intermediate-representation pruning, logical encoding reduction, and programmable switch pipelines, these systems verify distributed P4 programs, check cloud access-control policies, and accelerate SAT search."
+      }
+    ],
+    "project": {
+      "title": "Simulation of Emerging Interconnect Architectures",
+      "body": "This practice involves event-driven simulation of emerging interconnect architectures, modeling cross-layer protocol behavior and communication patterns to examine end-to-end data movement across distributed AI systems.",
+      "status": ""
+    },
+    "simulation": {
+      "heading": "Efficient, Scalable, and Accurate AI Infrastructure Simulation",
+      "intro": "Building on practical experience in network and communication simulation, I am interested in developing efficient, scalable, and accurate simulation methodologies to analyze the system behavior of modern AI infrastructure."
+    }
+  },
+  "publications": [
+    {
+      "id": "procurator",
+      "title": "Towards Efficient Verification of Distributed In-Network Computing Programs",
+      "venue": "ACM SIGCOMM",
+      "year": "2026",
+      "authors": [
+        "Mingyuan Song",
+        "Huan Shen",
+        "Jinghui Jiang",
+        "Qiang Su",
+        "Ziheng Zhang",
+        "Qingyu Song",
+        "Yuchao Zhang",
+        "Wanjian Feng",
+        "Fei Yuan",
+        "Yitao Xing",
+        "Wenjia Wei",
+        "Qiao Xiang",
+        "Jiwu Shu"
+      ],
+      "summary": "Procurator verifies distributed in-network P4 programs by modeling programmable switch pipelines as reactive actors communicating via message passing, combining intermediate-representation pruning and schedule replay to reduce state-space exploration.",
+      "doi": "10.1145/3789240.3829122",
+      "booktitle": "Proceedings of the ACM SIGCOMM 2026 Conference",
+      "pages": "74-91"
+    },
+    {
+      "id": "leopard",
+      "title": "LEOPARD: Accelerating Cloud-based Access Control Policy Verification Using Logical Encoding Optimization",
+      "venue": "IEEE/ACM IWQoS",
+      "year": "2025",
+      "authors": [
+        "Xing Fang",
+        "Feiyan Ding",
+        "Mingyuan Song",
+        "Yuntao Zhao",
+        "Lizhao You",
+        "Qiao Xiang",
+        "Linghe Kong",
+        "Jiwu Shu",
+        "Xue Liu"
+      ],
+      "summary": "LEOPARD accelerates SMT-based verification of cloud access-control policies through logical encoding optimization, applying structure-based and semantics-based pruning to remove redundant formulas unrelated to the target verification property.",
+      "doi": "10.1109/iwqos65803.2025.11215174",
+      "booktitle": "2025 IEEE/ACM 33rd International Symposium on Quality of Service (IWQoS)",
+      "pages": "1-10"
+    },
+    {
+      "id": "sat",
+      "title": "Accelerating SAT Solving Using Switching ASICs",
+      "venue": "IEEE ICPADS",
+      "year": "2023",
+      "authors": [
+        "Zhenpei Huang",
+        "Xiwen Fan",
+        "Jinghui Jiang",
+        "Mingyuan Song",
+        "Lu Tang",
+        "Qiao Xiang",
+        "Jiwu Shu"
+      ],
+      "summary": "This work offloads Boolean satisfiability solving onto programmable switching ASICs, using match-action tables and TCAM to check variable assignments while driving search through data-plane registers and packet mirroring.",
+      "doi": "10.1109/icpads60453.2023.00271",
+      "booktitle": "2023 IEEE 29th International Conference on Parallel and Distributed Systems (ICPADS)",
+      "pages": "1983-1990"
+    }
+  ],
+  "opensource": {
+    "heading": "Open source",
+    "projects": [
+      {
+        "name": "Procurator",
+        "url": "https://github.com/sngroup-xmu/Procurator",
+        "description": "Open-source verifier for distributed stateful P4 systems. Compiles declarative network specifications and imported P4 programs into Boogie harnesses, then invokes Ultimate/GemCutter to check bounded safety properties and emit counterexample witnesses.",
+        "technology": "P4, Boogie, Ultimate/GemCutter"
+      },
+      {
+        "name": "Feature Development Skill",
+        "url": "https://github.com/miles-song/high-efficiency-feature-development",
+        "description": "Portable multi-agent orchestration workflow for software feature delivery. Coordinates parallel work packages through explicit interface contracts, non-overlapping file ownership, single-integrator staging, consolidated feature review, and real-boundary runtime verification.",
+        "technology": "Multi-agent orchestration skill"
+      },
+      {
+        "name": "VeriGMP",
+        "url": "https://github.com/miles-song/VeriGMP",
+        "description": "Experimental Rust library for allocation-free multiprecision multiplication, squaring, and modular slice arithmetic. Proves functional refinement in Verus across schoolbook, Karatsuba, Toom-3, and low-product kernels, alongside packed-convolution composition theorems.",
+        "technology": "Rust, Verus"
+      }
+    ]
+  }
+}
