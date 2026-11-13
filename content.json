@@ -10,7 +10,8 @@
     "affiliation": "School of Informatics, Xiamen University",
     "location": "Xiamen, China",
     "avatarAlt": "Miles Song's GitHub avatar",
-    "publicationName": "Mingyuan Song"
+    "publicationName": "Mingyuan Song",
+    "email": "mingyuan.song.xmu [at] gmail.com"
   },
   "ui": {
     "profile": "Profile",
@@ -41,14 +42,15 @@
   "profile": {
     "lead": "I am interested in advanced AI systems, AI infrastructure, and agent systems, drawing on my background in building reliable, efficient networked and distributed systems.",
     "bio": [
-      "I am a Ph.D. student in the School of Informatics at Xiamen University, advised by Professor Qiao Xiang. My published work spans programmable networks and formal verification, including distributed P4 verification, cloud policy encoding, and switch-based SAT solving.",
-      "Internships on supernode communication modeling and system simulation at Huawei's 2012 Network Technology Lab and backend experimentation infrastructure at Tencent shaped my interest in the interconnects, simulation tools, and runtime systems supporting modern AI workloads."
+      "I am a Ph.D. student in the School of Informatics at Xiamen University, advised by Professor Qiao Xiang. I also receive research guidance from Qiang Su. I have published at top-tier conferences such as ACM SIGCOMM. My research focuses on network verification, AI infrastructure, and constraint-solving algorithms.",
+      "Internships on SuperPod communication modeling and system simulation at Huawei's 2012 Network Technology Lab and development for an A/B testing platform at Tencent shaped my interest in the interconnects, simulation tools, and runtime systems supporting modern AI workloads."
     ],
     "interests": [
       "Advanced AI systems",
       "AI infrastructure",
       "Agent systems"
-    ]
+    ],
+    "contact": "If you are interested in my research or projects, please feel free to contact me at {email} for discussion or collaboration."
   },
   "education": [
     {
@@ -98,7 +100,7 @@
     "areas": [
       {
         "title": "AI systems & infrastructure",
-        "body": "How do cluster interconnects, memory hierarchies, and runtime schedulers shape distributed training and inference efficiency? Building on supernode communication modeling, I am interested in how transport protocols, collective primitives, and resource multiplexing behave under dynamic AI workloads."
+        "body": "How do cluster interconnects, memory hierarchies, and runtime schedulers shape distributed training and inference efficiency? Building on SuperPod communication modeling, I am interested in how transport protocols, collective primitives, and resource multiplexing behave under dynamic AI workloads."
       },
       {
         "title": "Agent systems",

@@ -6,7 +6,7 @@ Mode: Read. Target: index.html. Related targets: styles.css, app.js.
 
 THESIS: A researcher's profile connects an interest in AI systems to concrete work on networks, verification, and simulation.
 
-OWN-WORLD: Cursor-influenced warm white, charcoal Inter typography with regular/medium weights and restrained sizing, fine neutral dividers, restrained vermilion links, and a quiet persistent navigation rail. Square avatar, compact pill actions, unboxed research paragraphs, publication rows.
+OWN-WORLD: Cursor-influenced warm white, charcoal Figtree typography with regular headings and selective medium emphasis and restrained sizing, fine neutral dividers, restrained vermilion links, and a quiet persistent navigation rail. Square avatar, compact pill actions, unboxed research paragraphs, publication rows.
 
 STORY: Meet the researcher, read recent milestones, understand research interests, open the actual papers and citations.
 
@@ -20,4 +20,6 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 
 The user's continuous academic structure overrides Taste Skill's commercial page categories, random layout deals, full-screen sections, obligatory photographic scenes, demo contacts, and decorative moments. Retain its typography, equal margins, real assets, precise copy, accessible interactions, performance, and responsive checks.
 
-The real GitHub avatar is sourced from https://avatars.githubusercontent.com/u/59304025?v=4 on 2026-11-13. The local font is Inter from Google Fonts, with its OFL license included. The user explicitly asked for type closer to Cursor; a regular sans face is intentional on this Read surface. No synthetic people or claims.
+The real GitHub avatar is sourced from https://avatars.githubusercontent.com/u/59304025?v=4 on 2026-11-13. The local font is Figtree from Google Fonts, with its OFL license included. The user explicitly asked for type closer to Cursor; a regular sans face is intentional on this Read surface. No synthetic people or claims.
+
+Typography uses self-hosted Figtree with regular headings as an openly licensed approximation of Cursor Gothic’s character.

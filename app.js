@@ -31,6 +31,13 @@ new ResizeObserver(scheduleSectionUpdate).observe(document.querySelector('main')
 document.fonts.ready.then(scheduleSectionUpdate);
 updateSection();
 
+const contactAddress = document.querySelector('#contact [data-email]').textContent;
+for (const link of document.querySelectorAll('[data-email]')) {
+  link.addEventListener('click', () => {
+    link.href = `mailto:${contactAddress.replace(' [at] ', String.fromCharCode(64))}`;
+  });
+}
+
 const dateFormatter = new Intl.DateTimeFormat('en', { month: 'short', year: 'numeric', timeZone: 'UTC' });
 for (const time of document.querySelectorAll('.news-list time')) {
   time.textContent = dateFormatter.format(new Date(`${time.dateTime}-01T00:00:00Z`));

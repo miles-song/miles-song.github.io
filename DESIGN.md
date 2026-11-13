@@ -16,51 +16,51 @@ colors:
   accent-deep: "#742a13"
 typography:
   display:
-    fontFamily: "Inter, 'Segoe UI', 'Microsoft YaHei', sans-serif"
+    fontFamily: "Figtree, 'Segoe UI', 'Microsoft YaHei', sans-serif"
     fontSize: "clamp(32px, 3vw, 42px)"
-    fontWeight: 500
+    fontWeight: 400
     lineHeight: 1.15
     letterSpacing: "-0.035em"
   headline:
-    fontFamily: "Inter, 'Segoe UI', 'Microsoft YaHei', sans-serif"
+    fontFamily: "Figtree, 'Segoe UI', 'Microsoft YaHei', sans-serif"
     fontSize: "30px"
-    fontWeight: 500
+    fontWeight: 400
     lineHeight: 1.2
     letterSpacing: "-0.03em"
   title:
-    fontFamily: "Inter, 'Segoe UI', 'Microsoft YaHei', sans-serif"
+    fontFamily: "Figtree, 'Segoe UI', 'Microsoft YaHei', sans-serif"
     fontSize: "22px"
-    fontWeight: 500
+    fontWeight: 400
     lineHeight: 1.4
     letterSpacing: "-0.025em"
   lead:
-    fontFamily: "Inter, 'Segoe UI', 'Microsoft YaHei', sans-serif"
+    fontFamily: "Figtree, 'Segoe UI', 'Microsoft YaHei', sans-serif"
     fontSize: "25px"
     fontWeight: 400
     lineHeight: 1.45
     letterSpacing: "-0.025em"
   body:
-    fontFamily: "Inter, 'Segoe UI', 'Microsoft YaHei', sans-serif"
+    fontFamily: "Figtree, 'Segoe UI', 'Microsoft YaHei', sans-serif"
     fontSize: "16px"
     fontWeight: 400
     lineHeight: 1.7
   body-compact:
-    fontFamily: "Inter, 'Segoe UI', 'Microsoft YaHei', sans-serif"
+    fontFamily: "Figtree, 'Segoe UI', 'Microsoft YaHei', sans-serif"
     fontSize: "15px"
     fontWeight: 400
     lineHeight: 1.75
   label:
-    fontFamily: "Inter, 'Segoe UI', 'Microsoft YaHei', sans-serif"
+    fontFamily: "Figtree, 'Segoe UI', 'Microsoft YaHei', sans-serif"
     fontSize: "13px"
     fontWeight: 400
     lineHeight: 1.7
   action:
-    fontFamily: "Inter, 'Segoe UI', 'Microsoft YaHei', sans-serif"
+    fontFamily: "Figtree, 'Segoe UI', 'Microsoft YaHei', sans-serif"
     fontSize: "14px"
     fontWeight: 400
     lineHeight: 1.4
   action-compact:
-    fontFamily: "Inter, 'Segoe UI', 'Microsoft YaHei', sans-serif"
+    fontFamily: "Figtree, 'Segoe UI', 'Microsoft YaHei', sans-serif"
     fontSize: "13px"
     fontWeight: 400
     lineHeight: 1.4
@@ -143,14 +143,14 @@ components:
 
 **Creative North Star: "The Quiet Academic Page"**
 
-A warm, light reading surface gives academic content room to be understood. Cursor-influenced restraint appears in the charcoal Inter typography, compact pill actions, fine dividers, and almost imperceptible surface changes. English is the principal language; the Chinese name 宋明远 remains part of the public identity.
+A warm, light reading surface gives academic content room to be understood. Cursor-influenced restraint appears in the charcoal Figtree typography, compact pill actions, fine dividers, and almost imperceptible surface changes. English is the principal language; the Chinese name 宋明远 remains part of the public identity.
 
 The visual hierarchy follows the content: a clear personal name, readable paragraphs, distinct section headings, and paper titles that lead their records. The real GitHub avatar is the identity image. Persistent navigation provides orientation while the page remains a continuous document.
 
 **Key Characteristics:**
 
 - Warm white and charcoal with small vermilion accents.
-- Regular and medium Inter typography with compact, readable metadata.
+- Regular Figtree typography with compact, readable metadata and selective medium-weight emphasis.
 - Unboxed reading rows, fine dividers, and occasional tonal insets.
 - Persistent section context and native links and disclosures.
 
@@ -181,13 +181,13 @@ The palette is warm and nearly neutral, with a muted vermilion accent. The front
 
 ## Typography
 
-**Display and Body Font:** locally hosted Inter, with Segoe UI, Microsoft YaHei, and sans-serif fallbacks.
+**Display and Body Font:** locally hosted Figtree, with Segoe UI, Microsoft YaHei, and sans-serif fallbacks.
 
 **Chinese Identity Font:** Microsoft YaHei, PingFang SC, and sans-serif fallbacks.
 
 **Code Font:** Consolas, Liberation Mono, and monospace fallbacks.
 
-The type is restrained, with normal-weight prose and medium-weight headings. Slightly tightened heading tracking supplies distinction without decorative display styling. The wordmark uses a semibold weight (600); this exception does not extend to the reading hierarchy.
+The type uses regular-weight Figtree for both prose and headings. Slightly tightened heading tracking supplies distinction without decorative display styling. The wordmark uses medium weight (500) and restrained tracking (-0.35px).
 
 ### Hierarchy
 
@@ -256,6 +256,8 @@ Text actions have a minimum height (44px) and a small adjacent SVG where appropr
 
 Links inside prose have visible neutral underlines at rest, with an underline offset (4px). Hover changes both text and underline to vermilion. Every keyboard-focusable control receives an accent outline (2px) with an offset (5px).
 
+The contact address displays `[at]` within an ordinary inline link. Email controls assemble the mail link when activated; without JavaScript, they lead to the readable contact paragraph below the sticky navigation.
+
 ### Section navigation
 
 The desktop rail uses muted text, small corners, and a minimum row height (46px). Hover introduces a very light neutral fill. The current section uses the stronger neutral fill, charcoal text, medium weight, and a small arrow.
@@ -268,7 +270,7 @@ Research descriptions are unboxed and use aligned heading and prose columns. Rep
 
 ### Quiet inset
 
-A contextual note uses the quiet inset fill, small corners, and generous internal padding from the component token. Its title is medium weight (16px); its supporting text is smaller (14px) with relaxed leading (1.8). Phone padding is reduced evenly (20px).
+A contextual note uses the quiet inset fill, small corners, and generous internal padding from the component token. Its title is regular weight (16px); its supporting text is smaller (14px) with relaxed leading (1.8). Phone padding is reduced evenly (20px).
 
 ### Publication entry
 
@@ -293,7 +295,7 @@ Motion is limited to short state feedback, smooth anchor scrolling, and a single
 ### Do:
 
 - **Do** use the warm neutral palette and small vermilion accents for the roles defined above.
-- **Do** keep headings medium weight and prose regular, with readable supporting metadata.
+- **Do** keep headings and prose regular, reserving medium weight for selected navigation, metadata, and author emphasis.
 - **Do** place each paper title before its venue, year, authors, and resource actions.
 - **Do** maintain visible section context, keyboard focus, and ordinary anchor destinations.
 - **Do** keep research text in reading rows and use tonal insets for contextual detail.
@@ -303,6 +305,6 @@ Motion is limited to short state feedback, smooth anchor scrolling, and a single
 
 - **Don't** promote venue names, dates, or invented labels into decorative overlines above titles.
 - **Don't** turn the reading sequence into a grid of raised promotional cards.
-- **Don't** replace the restrained Inter hierarchy with oversized decorative display type.
+- **Don't** replace the restrained Figtree hierarchy with oversized decorative display type.
 - **Don't** introduce synthetic identity imagery, ornamental icons, or unsupported content claims.
 - **Don't** make paper access, basic navigation, or citation disclosure depend on animation.

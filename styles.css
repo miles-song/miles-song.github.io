@@ -1,5 +1,5 @@
-@font-face{font-family:Inter;src:url('assets/fonts/inter-latin.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
-:root{color-scheme:light;--page:#f7f7f2;--surface:#eeeee7;--ink:#292923;--muted:#686860;--line:#ddddd4;--accent:#a74326;--font:Inter,'Segoe UI','Microsoft YaHei',sans-serif;--header-height:76px;--gutter:48px}
+@font-face{font-family:Figtree;src:url('assets/fonts/figtree-latin.woff2') format('woff2');font-weight:300 900;font-style:normal;font-display:swap}
+:root{color-scheme:light;--page:#f7f7f2;--surface:#eeeee7;--ink:#292923;--muted:#686860;--line:#ddddd4;--accent:#a74326;--font:Figtree,'Segoe UI','Microsoft YaHei',sans-serif;--header-height:76px;--gutter:48px}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scrollbar-color:#b8b8ad var(--page)}
 body{margin:0;background:var(--page);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
@@ -11,7 +11,7 @@ button{cursor:pointer}
 :focus-visible{outline:2px solid var(--accent);outline-offset:5px;border-radius:2px}
 main:focus{outline:none}
 h1,h2,h3,h4,p{margin:0}
-h1,h2,h3,h4{font-weight:500;text-wrap:balance}
+h1,h2,h3,h4{font-weight:400;text-wrap:balance}
 p{text-wrap:pretty}
 ol{padding:0;margin:0;list-style:none}
 svg{flex-shrink:0}
@@ -21,7 +21,7 @@ svg{flex-shrink:0}
 .skip-link:focus{transform:translateY(0)}
 .site-header{position:sticky;top:0;z-index:20;background:var(--page);border-bottom:1px solid var(--line)}
 .header-inner{height:var(--header-height);display:flex;align-items:center;justify-content:space-between;gap:24px}
-.wordmark{display:inline-flex;align-items:baseline;min-height:44px;font-size:18px;font-weight:600;letter-spacing:-.5px;padding-block:7px}
+.wordmark{display:inline-flex;align-items:baseline;min-height:44px;font-size:18px;font-weight:500;letter-spacing:-.35px;padding-block:7px}
 .name-dot{color:var(--accent)}
 .header-links{display:flex;align-items:center;gap:24px}
 .header-github{display:inline-flex;align-items:center;gap:6px;min-height:44px;font-size:14px}
@@ -57,6 +57,7 @@ h1 span{display:inline-block;font-family:'Microsoft YaHei','PingFang SC',sans-se
 .profile-lead{max-width:720px;font-size:25px;line-height:1.45;letter-spacing:-.025em;margin-top:38px}
 .bio{max-width:72ch;margin-top:24px;color:#505049}
 .bio p+p{margin-top:16px}
+.contact-note{scroll-margin-top:160px}
 .inline-link{color:var(--ink);text-decoration:underline;text-decoration-color:#b8b8ad;transition:text-decoration-color 150ms ease,color 150ms ease}
 .inline-link:hover{color:var(--accent);text-decoration-color:var(--accent)}
 .profile-actions{display:flex;align-items:center;gap:24px;margin-top:26px}
@@ -65,7 +66,7 @@ h1 span{display:inline-block;font-family:'Microsoft YaHei','PingFang SC',sans-se
 .text-link .icon{width:15px;height:15px;transition:transform 160ms ease}
 .text-link:hover .icon{transform:translate(2px,-1px)}
 .education{margin-top:42px}
-.education h2{font-size:15px;margin-bottom:16px;font-weight:500}
+.education h2{font-size:15px;margin-bottom:16px}
 .education ol{display:grid;gap:12px}
 .education li{display:grid;grid-template-columns:132px minmax(0,1fr);gap:16px;font-size:13px;line-height:1.5}
 .education-years{color:var(--muted);font-variant-numeric:tabular-nums;padding-top:1px}

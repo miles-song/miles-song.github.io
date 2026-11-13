@@ -1,5 +1,6 @@
 """Render the public homepage from reviewed Gemini-authored copy. No dependencies."""
 from html import escape
+from hashlib import sha256
 import json
 from pathlib import Path
 
@@ -7,6 +8,8 @@ ROOT = Path(__file__).resolve().parent.parent
 data = json.loads((ROOT / 'content.json').read_text(encoding='utf-8'))
 ui = data['ui']
 identity = data['identity']
+style_version = sha256((ROOT / 'styles.css').read_bytes()).hexdigest()[:12]
+script_version = sha256((ROOT / 'app.js').read_bytes()).hexdigest()[:12]
 
 def e(value):
     return escape(str(value), quote=True)
@@ -28,9 +31,12 @@ def ext(url, label, cls='text-link', symbol='external', extra=''):
 
 def linked_bio(text):
     text = e(text)
-    for name, url in [('Qiao Xiang','https://qiaoxiang.me/'), ('Xiamen University','https://www.xmu.edu.cn/')]:
+    for name, url in [('Qiao Xiang','https://qiaoxiang.me/'), ('Qiang Su','https://faculty.xmu.edu.cn/suqiang/zh_CN/index.htm'), ('Xiamen University','https://www.xmu.edu.cn/')]:
         text = text.replace(name, f'<a class="inline-link" href="{url}" target="_blank" rel="noopener noreferrer">{name}</a>')
     return text
+
+contact_link = f'<a class="inline-link" href="#contact" data-email>{e(identity["email"])}</a>'
+contact = e(data['profile']['contact']).replace('{email}', contact_link)
 
 def bibliography(p):
     names = []
@@ -108,22 +114,22 @@ page = f'''<!doctype html>
   <meta name="twitter:description" content="{e(data['meta']['description'])}">
   <meta name="twitter:image" content="https://miles-song.github.io/assets/github-avatar.webp">
   <link rel="icon" href="assets/github-avatar.webp" type="image/webp">
-  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css">
-  <script src="app.js" defer></script>
+  <link rel="preload" href="assets/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css?v={style_version}">
+  <script src="app.js?v={script_version}" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">{e(ui['skip'])}</a>
   <header class="site-header">
     <div class="header-inner wrap">
       <a class="wordmark" href="#profile" translate="no">{e(identity['name'])}<span class="name-dot" aria-hidden="true">.</span></a>
-      <div class="header-links">{ext('https://github.com/miles-song',ui['github'],'header-github','external',f'aria-label="{e(ui["githubAria"])}"')}<a class="button button-small" href="mailto:mingyuansong02@gmail.com" aria-label="{e(ui['emailAria'])}">{e(ui['email'])}{icon('external')}</a></div>
+      <div class="header-links">{ext('https://github.com/miles-song',ui['github'],'header-github','external',f'aria-label="{e(ui["githubAria"])}"')}<a class="button button-small" href="#contact" data-email aria-label="{e(ui['emailAria'])}">{e(ui['email'])}{icon('external')}</a></div>
     </div>
   </header>
   <div class="page-layout wrap">
     <aside class="sidebar">
       <nav class="section-nav" aria-label="{e(ui['navigationLabel'])}">{nav}</nav>
-      <div class="sidebar-foot"><span>{e(identity['location'])}</span><a href="mailto:mingyuansong02@gmail.com" class="sidebar-email" aria-label="{e(ui['emailAria'])}">{icon('mail')}<span>{e(ui['email'])}</span></a></div>
+      <div class="sidebar-foot"><span>{e(identity['location'])}</span><a href="#contact" data-email class="sidebar-email" aria-label="{e(ui['emailAria'])}">{icon('mail')}<span>{e(ui['email'])}</span></a></div>
     </aside>
     <main id="main" tabindex="-1">
       <section id="profile" class="profile-section" aria-labelledby="profile-name" data-enter>
@@ -132,7 +138,7 @@ page = f'''<!doctype html>
           <a class="avatar-link" href="https://github.com/miles-song" target="_blank" rel="noopener noreferrer" aria-label="{e(ui['githubAria'])}"><img class="avatar" src="assets/github-avatar.webp" width="136" height="136" alt="{e(identity['avatarAlt'])}" fetchpriority="high"></a>
         </div>
         <p class="profile-lead">{e(data['profile']['lead'])}</p>
-        <div class="bio">{''.join(f'<p>{linked_bio(p)}</p>' for p in data['profile']['bio'])}</div>
+        <div class="bio">{''.join(f'<p>{linked_bio(p)}</p>' for p in data['profile']['bio'])}<p id="contact" class="contact-note">{contact}</p></div>
         <div class="profile-actions"><a class="button" href="#publications">{e(ui['viewPublications'])}{icon('arrow')}</a>{ext('https://github.com/miles-song',ui['github'],'text-link','github')}</div>
         <div class="education"><h2>{e(ui['education'])}</h2><ol>{education}</ol></div>
       </section>
