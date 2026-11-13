@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Miles Song (宋明远) · Xiamen University",
-    "description": "Academic homepage of Miles Song (宋明远), Ph.D. student at Xiamen University interested in advanced AI systems, AI infrastructure, and agent systems, with published work in programmable networks and formal verification."
+    "title": "Miles Song (Mingyuan Song, 宋明远) | Xiamen University",
+    "description": "Miles Song (Mingyuan Song) is a Ph.D. student at Xiamen University, working on network verification and interested in AI infrastructure and agent systems."
   },
   "identity": {
     "name": "Miles Song",
@@ -11,7 +11,8 @@
     "location": "Xiamen, China",
     "avatarAlt": "Miles Song's GitHub avatar",
     "publicationName": "Mingyuan Song",
-    "email": "mingyuan.song.xmu [at] gmail.com"
+    "email": "mingyuan.song.xmu [at] gmail.com",
+    "publicationNameNote": "Published as Mingyuan Song"
   },
   "ui": {
     "profile": "Profile",
@@ -147,7 +148,8 @@
       "doi": "10.1145/3789240.3829122",
       "booktitle": "Proceedings of the ACM SIGCOMM 2026 Conference",
       "pages": "74-91",
-      "slides": "assets/slides/sigcomm2026-procurator.pdf"
+      "slides": "assets/slides/sigcomm2026-procurator.pdf",
+      "datePublished": "2026-08-11"
     },
     {
       "id": "leopard",
@@ -168,7 +170,8 @@
       "summary": "LEOPARD accelerates SMT-based verification of cloud access-control policies through logical encoding optimization, applying structure-based and semantics-based pruning to remove redundant formulas unrelated to the target verification property.",
       "doi": "10.1109/iwqos65803.2025.11215174",
       "booktitle": "2025 IEEE/ACM 33rd International Symposium on Quality of Service (IWQoS)",
-      "pages": "1-10"
+      "pages": "1-10",
+      "datePublished": "2025-07-02"
     },
     {
       "id": "sat",
@@ -187,7 +190,8 @@
       "summary": "This work offloads Boolean satisfiability solving onto programmable switching ASICs, using match-action tables and TCAM to check variable assignments while driving search through data-plane registers and packet mirroring.",
       "doi": "10.1109/icpads60453.2023.00271",
       "booktitle": "2023 IEEE 29th International Conference on Parallel and Distributed Systems (ICPADS)",
-      "pages": "1983-1990"
+      "pages": "1983-1990",
+      "datePublished": "2023-12-17"
     }
   ],
   "opensource": {

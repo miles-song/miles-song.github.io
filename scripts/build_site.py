@@ -3,6 +3,8 @@ from html import escape
 from hashlib import sha256
 import json
 from pathlib import Path
+from urllib.parse import urljoin
+from xml.etree.ElementTree import Element, SubElement, indent, tostring
 
 ROOT = Path(__file__).resolve().parent.parent
 data = json.loads((ROOT / 'content.json').read_text(encoding='utf-8'))
@@ -10,6 +12,8 @@ ui = data['ui']
 identity = data['identity']
 style_version = sha256((ROOT / 'styles.css').read_bytes()).hexdigest()[:12]
 script_version = sha256((ROOT / 'app.js').read_bytes()).hexdigest()[:12]
+SITE_URL = 'https://miles-song.github.io/'
+PERSON_ID = SITE_URL + '#person'
 
 def e(value):
     return escape(str(value), quote=True)
@@ -37,6 +41,54 @@ def linked_bio(text):
 
 contact_link = f'<a class="inline-link" href="#contact" data-email>{e(identity["email"])}</a>'
 contact = e(data['profile']['contact']).replace('{email}', contact_link)
+
+profile_metadata = {
+    '@type': 'ProfilePage',
+    '@id': SITE_URL + '#webpage',
+    'url': SITE_URL,
+    'name': data['meta']['title'],
+    'description': data['meta']['description'],
+    'inLanguage': 'en',
+    'mainEntity': {
+        '@type': 'Person',
+        '@id': PERSON_ID,
+        'name': identity['name'],
+        'alternateName': [identity['publicationName'], identity['chineseName']],
+        'url': SITE_URL,
+        'image': urljoin(SITE_URL, 'assets/github-avatar.webp'),
+        'description': data['profile']['lead'],
+        'jobTitle': identity['role'],
+        'affiliation': {'@type': 'CollegeOrUniversity', 'name': 'Xiamen University', 'url': 'https://www.xmu.edu.cn/'},
+        'sameAs': ['https://github.com/miles-song'],
+        'knowsAbout': data['profile']['interests'],
+    },
+    'citation': [{'@id': SITE_URL + '#' + p['id']} for p in data['publications']],
+}
+publication_metadata = []
+for p in data['publications']:
+    authors = []
+    for name in p['authors']:
+        author = {'@type': 'Person', 'name': name}
+        if name == identity['publicationName']:
+            author.update({'@id': PERSON_ID, 'url': SITE_URL})
+        authors.append(author)
+    publication_metadata.append({
+        '@type': 'ScholarlyArticle',
+        '@id': SITE_URL + '#' + p['id'],
+        'url': 'https://doi.org/' + p['doi'],
+        'name': p['title'],
+        'headline': p['title'],
+        'description': p['summary'],
+        'author': authors,
+        'datePublished': p['datePublished'],
+        'pagination': p['pages'],
+        'identifier': {'@type': 'PropertyValue', 'propertyID': 'DOI', 'value': p['doi']},
+        'isPartOf': {'@type': 'CreativeWork', 'name': p['booktitle']},
+    })
+structured_data = json.dumps({
+    '@context': 'https://schema.org',
+    '@graph': [profile_metadata, *publication_metadata],
+}, ensure_ascii=False, indent=2).replace('<', '\\u003c')
 
 def bibliography(p):
     names = []
@@ -99,11 +151,13 @@ page = f'''<!doctype html>
   <title>{e(data['meta']['title'])}</title>
   <meta name="description" content="{e(data['meta']['description'])}">
   <meta name="author" content="{e(identity['name'])}">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
   <meta name="theme-color" content="#f7f7f2">
   <meta name="color-scheme" content="light">
   <meta name="page-type" content="personal">
   <meta name="site-kind" content="academic">
   <link rel="canonical" href="https://miles-song.github.io/">
+  <link rel="sitemap" type="application/xml" href="sitemap.xml">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="{e(data['meta']['title'])}">
   <meta property="og:description" content="{e(data['meta']['description'])}">
@@ -114,6 +168,9 @@ page = f'''<!doctype html>
   <meta name="twitter:title" content="{e(data['meta']['title'])}">
   <meta name="twitter:description" content="{e(data['meta']['description'])}">
   <meta name="twitter:image" content="https://miles-song.github.io/assets/github-avatar.webp">
+  <script type="application/ld+json">
+{structured_data}
+  </script>
   <link rel="icon" href="assets/github-avatar.webp" type="image/webp">
   <link rel="preload" href="assets/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css?v={style_version}">
@@ -135,7 +192,7 @@ page = f'''<!doctype html>
     <main id="main" tabindex="-1">
       <section id="profile" class="profile-section" aria-labelledby="profile-name" data-enter>
         <div class="profile-heading">
-          <div><h1 id="profile-name" translate="no">{e(identity['name'])}<span lang="zh-Hans">{e(identity['chineseName'])}</span></h1><p class="role">{e(identity['role'])}</p><p class="affiliation">{e(identity['affiliation'])}</p></div>
+          <div><h1 id="profile-name" translate="no">{e(identity['name'])}<span lang="zh-Hans">{e(identity['chineseName'])}</span></h1><p class="role">{e(identity['role'])}</p><p class="affiliation">{e(identity['affiliation'])}</p><p class="affiliation">{e(identity['publicationNameNote'])}</p></div>
           <a class="avatar-link" href="https://github.com/miles-song" target="_blank" rel="noopener noreferrer" aria-label="{e(ui['githubAria'])}"><img class="avatar" src="assets/github-avatar.webp" width="136" height="136" alt="{e(identity['avatarAlt'])}" fetchpriority="high"></a>
         </div>
         <p class="profile-lead">{e(data['profile']['lead'])}</p>
@@ -169,4 +226,12 @@ page = f'''<!doctype html>
 </html>
 '''
 (ROOT/'index.html').write_text(page, encoding='utf-8')
-print('Built index.html from content.json')
+
+sitemap = Element('urlset', xmlns='http://www.sitemaps.org/schemas/sitemap/0.9')
+locations = [SITE_URL] + [urljoin(SITE_URL, p['slides']) for p in data['publications'] if p.get('slides')]
+for location in dict.fromkeys(locations):
+    if location.startswith(SITE_URL):
+        SubElement(SubElement(sitemap, 'url'), 'loc').text = location
+indent(sitemap, space='  ')
+(ROOT/'sitemap.xml').write_bytes(tostring(sitemap, encoding='utf-8', xml_declaration=True) + b'\n')
+print('Built index.html and sitemap.xml from content.json')
