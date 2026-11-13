@@ -73,12 +73,13 @@ for p in data['publications']:
     author_html = ', '.join(f'<strong>{e(a)}</strong>' if a == identity['publicationName'] else e(a) for a in p['authors'])
     url = 'https://www.xingfang.fun/papers/IWQoS25-LEOPARD.pdf' if p['id']=='leopard' else f'https://doi.org/{p["doi"]}'
     code = ext('https://github.com/sngroup-xmu/Procurator',ui['code']) if p['id']=='procurator' else ''
+    slides = ext(p['slides'],ui['slides']) if p.get('slides') else ''
     papers.append(f'''<article class="publication" id="{e(p['id'])}" aria-labelledby="title-{e(p['id'])}">
       <h3 id="title-{e(p['id'])}"><a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(p['title'])}</a></h3>
       <div class="publication-meta"><span class="venue">{e(p['venue'])}</span><span class="year">{e(p['year'])}</span></div>
       <p class="authors">{author_html}</p>
       <p class="paper-summary">{e(p['summary'])}</p>
-      <div class="paper-actions">{ext(url,ui['paper'])}{code}
+      <div class="paper-actions">{ext(url,ui['paper'])}{slides}{code}
         <details class="citation" id="citation-{e(p['id'])}">
           <summary>{e(ui['bibtex'])}{icon('plus','citation-toggle')}</summary>
           <div class="citation-content">

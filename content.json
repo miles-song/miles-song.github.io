@@ -37,7 +37,8 @@
     "footer": "© 2026 Miles Song",
     "emailAria": "Send an email to Miles Song",
     "githubAria": "Open Miles Song's GitHub profile",
-    "onThisPage": "On this page"
+    "onThisPage": "On this page",
+    "slides": "Slides"
   },
   "profile": {
     "lead": "I am interested in advanced AI systems, AI infrastructure, and agent systems, drawing on my background in building reliable, efficient networked and distributed systems.",
@@ -145,7 +146,8 @@
       "summary": "Procurator verifies distributed in-network P4 programs by modeling programmable switch pipelines as reactive actors communicating via message passing, combining intermediate-representation pruning and schedule replay to reduce state-space exploration.",
       "doi": "10.1145/3789240.3829122",
       "booktitle": "Proceedings of the ACM SIGCOMM 2026 Conference",
-      "pages": "74-91"
+      "pages": "74-91",
+      "slides": "assets/slides/sigcomm2026-procurator.pdf"
     },
     {
       "id": "leopard",
