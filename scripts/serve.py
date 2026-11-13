@@ -5,7 +5,7 @@ from urllib.parse import unquote, urlsplit
 import argparse
 
 ROOT = Path(__file__).resolve().parent.parent
-PUBLIC_FILES = {'index.html', 'styles.css', 'app.js', 'content.json', 'robots.txt', 'sitemap.xml', 'indexnow.txt'}
+PUBLIC_FILES = {'index.html', 'styles.css', 'app.js', 'content.json', 'robots.txt', 'sitemap.xml', 'indexnow.txt', 'google0a714643d1730b11.html'}
 
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
