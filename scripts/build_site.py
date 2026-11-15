@@ -12,7 +12,7 @@ ui = data['ui']
 identity = data['identity']
 style_version = sha256((ROOT / 'styles.css').read_bytes()).hexdigest()[:12]
 script_version = sha256((ROOT / 'app.js').read_bytes()).hexdigest()[:12]
-SITE_URL = 'https://miles-song.github.io/'
+SITE_URL = 'https://mingyuansong.com/'
 PERSON_ID = SITE_URL + '#person'
 
 def e(value):
@@ -156,18 +156,18 @@ page = f'''<!doctype html>
   <meta name="color-scheme" content="light">
   <meta name="page-type" content="personal">
   <meta name="site-kind" content="academic">
-  <link rel="canonical" href="https://miles-song.github.io/">
+  <link rel="canonical" href="{e(SITE_URL)}">
   <link rel="sitemap" type="application/xml" href="sitemap.xml">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="{e(data['meta']['title'])}">
   <meta property="og:description" content="{e(data['meta']['description'])}">
-  <meta property="og:url" content="https://miles-song.github.io/">
-  <meta property="og:image" content="https://miles-song.github.io/assets/github-avatar.webp">
+  <meta property="og:url" content="{e(SITE_URL)}">
+  <meta property="og:image" content="{e(urljoin(SITE_URL, 'assets/github-avatar.webp'))}">
   <meta property="og:image:alt" content="{e(identity['avatarAlt'])}">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="{e(data['meta']['title'])}">
   <meta name="twitter:description" content="{e(data['meta']['description'])}">
-  <meta name="twitter:image" content="https://miles-song.github.io/assets/github-avatar.webp">
+  <meta name="twitter:image" content="{e(urljoin(SITE_URL, 'assets/github-avatar.webp'))}">
   <script type="application/ld+json">
 {structured_data}
   </script>

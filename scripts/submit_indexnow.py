@@ -8,7 +8,7 @@ from urllib.request import Request, urlopen
 from xml.etree import ElementTree
 
 ROOT = Path(__file__).resolve().parent.parent
-SITE_URL = 'https://miles-song.github.io/'
+SITE_URL = 'https://mingyuansong.com/'
 KEY_URL = SITE_URL + 'indexnow.txt'
 key = (ROOT / 'indexnow.txt').read_text(encoding='utf-8').strip()
 if not re.fullmatch(r'[a-f0-9]{32}', key):
